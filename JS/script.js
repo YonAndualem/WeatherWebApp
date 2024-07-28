@@ -4,75 +4,21 @@ let cityInput = document.getElementById("city-input"),
   api_key = "1cdfa4a7950a8dab18f719d896c0b3a2";
 currentWeatherCard = document.querySelectorAll(".weather-left .card")[0],
 fiveDaysForecastCard = document.querySelector('.day-forecast'),
-aqiCard = document.querySelectorAll(".highlights .card")[0],
 sunriseCard = document.querySelectorAll(".highlights .card")[1],
 humidityval = document.getElementById("humidityval"),
 pressureval = document.getElementById("pressureval"),
 visibilityval = document.getElementById("visibilityval"),
 windSpeedval = document.getElementById("windSpeedval"),
 feelsval = document.getElementById("feelsval"),
-hourlyForecastCard = document.querySelector('.hourly-forecast'),
-aqiList = ["Good", "Fair", "Moderate", "Poor", "Very Poor"];
+hourlyForecastCard = document.querySelector('.hourly-forecast');
 
 function getWeatherDetails(name, lat, lon, country, state) {
     let FORECAST_API_URL = `https://api.openweathermap.org/data/2.5/forecast/?lat=${lat}&lon=${lon}&appid=${api_key}`;
-
-    let AIR_POLLUTION_API_URL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${api_key}`;
 
     let WEATHER_API_URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}`;
 
     days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-        fetch(AIR_POLLUTION_API_URL).then(res => res.json()).then(data => {
-            let {co, no, no2, o3, so2, pm2_5, pm10, nh3} = data.list[0].components;
-            aqiCard.innerHTML = `
-            <div class="card-head">
-                <p>Air Quality Index</p>
-                <p class="air-index aqi-${data.list[0].main.aqi}">${aqiList[data.list[0].main.aqi - 1]}</p>
-            </div>
-            <div class="air-indices">
-                <i class="fa-regular fa-wind fa-3x"></i>
-                <div class="item">
-                    <p>PM2.5</p>
-                    <h2>${pm2_5}</h2>
-                </div>
-                <div class="item">
-                    <p>PM10</p>
-                    <h2>${pm10}</h2>
-                </div>
-                <div class="item">
-                    <p>SO2</p>
-                    <h2>${so2}</h2>
-                </div>
-                <div class="item">
-                    <p>CO</p>
-                    <h2>${co}</h2>
-                </div>
-                <div class="item">
-                    <p>NO</p>
-                    <h2>${no}</h2>
-                </div>
-                <div class="item">
-                    <p>NO2</p>
-                    <h2>${no2}</h2>
-                </div>
-                <div class="item">
-                    <p>NH3</p>
-                    <h2>${nh3}</h2>
-                </div>
-                <div class="item">
-                    <p>O3</p>
-                    <h2>${o3}</h2>
-                </div>
-            </div>
-            `;
-        }).catch(() => {
-            alert(`Failed to fetch air pollution details for ${name}`);
-        });
-
-
-
 
     fetch(WEATHER_API_URL).then(res => res.json()).then(data => {
         let date = new Date();
@@ -80,7 +26,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
         <div class="current-weather">
             <div class="details">
                 <p>Now</p>
-                <h2>${(data.main.temp - 273.15).toFixed(2)}&deg;C</h2>
+                <h2>${(data.main.temp - 273.15).toFixed(1)}&deg;C</h2>
                 <p>${data.weather[0].description}</p>
             </div>
             <div class="weather-icon">
@@ -90,10 +36,10 @@ function getWeatherDetails(name, lat, lon, country, state) {
         <hr>
         <div class="card-footer">
             <p>
-                <i class="fa-light fa-calendar"></i>${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}
+                <i class="fa-light fa-calendar"></i>  ${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}
             </p>
             <p>
-                <i class="fa-light fa-location-dot"></i>${name}, ${country}
+                <i class="fa-light fa-location-dot"></i>  ${name}, ${country}
             </p>
         </div>
         `;
