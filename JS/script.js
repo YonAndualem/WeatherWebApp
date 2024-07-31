@@ -78,7 +78,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
         pressureval.innerText = `${pressure} hPa`;
         visibilityval.innerText = `${visibility / 1000} km`;
         windSpeedval.innerText = `${speed} m/s`;
-        feelsval.innerText = `${(feels_like - 273.15).toFixed(2)}\u00B0C`;
+        feelsval.innerText = `${(feels_like - 273.15).toFixed(1)}\u00B0C`;
     }).catch(() => {
         alert(`Failed to fetch weather details for ${name}`);
     });
@@ -97,7 +97,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
             <div class="card">
                 <p>${hr} ${a}</p>
                 <img src="https://openweathermap.org/img/wn/${hourlyForecast[i].weather[0].icon}.png" alt="">
-                <p>${(hourlyForecast[i].main.temp - 273.15).toFixed(2)}&deg;C</p>
+                <p>${(hourlyForecast[i].main.temp - 273.15).toFixed(1)}&deg;C</p>
             </div>
             `;
         }
@@ -115,7 +115,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
             <div class="forecast-item">
                 <div class="icon-wrapper">
                     <img src="https://openweathermap.org/img/wn/${fiveDaysForecast[i].weather[0].icon}.png" alt="">
-                    <span>${(fiveDaysForecast[i].main.temp -273.15).toFixed(2)}&deg;C</span>
+                    <span>${(fiveDaysForecast[i].main.temp -273.15).toFixed(1)}&deg;C</span>
                 </div>
                 <p>${date.getDate()} ${months[date.getMonth()]}</p>
                 <p>${days[date.getDay()]}</p>
