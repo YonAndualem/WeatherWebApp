@@ -10,6 +10,7 @@ pressureval = document.getElementById("pressureval"),
 visibilityval = document.getElementById("visibilityval"),
 windSpeedval = document.getElementById("windSpeedval"),
 feelsval = document.getElementById("feelsval"),
+seaval = document.getElementById("seaLevelval"),
 hourlyForecastCard = document.querySelector('.hourly-forecast');
 
 function getWeatherDetails(name, lat, lon, country, state) {
@@ -21,6 +22,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
         months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     fetch(WEATHER_API_URL).then(res => res.json()).then(data => {
+        console.log(data);
         let date = new Date();
         currentWeatherCard.innerHTML = `
         <div class="current-weather">
@@ -39,7 +41,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
                 <i class="fa-light fa-calendar"></i>  ${days[date.getDay()]}, ${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}
             </p>
             <p>
-                <i class="fa-light fa-location-dot"></i>  ${name}, ${country}
+                <i class="fa-light fa-location-dot"></i>  ${name} ${country}
             </p>
         </div>
         `;
@@ -79,6 +81,8 @@ function getWeatherDetails(name, lat, lon, country, state) {
         visibilityval.innerText = `${visibility / 1000} km`;
         windSpeedval.innerText = `${speed} m/s`;
         feelsval.innerText = `${(feels_like - 273.15).toFixed(1)}\u00B0C`;
+        seaval.innerText = `${data.main.sea_level} MASL`;
+
     }).catch(() => {
         alert(`Failed to fetch weather details for ${name}`);
     });

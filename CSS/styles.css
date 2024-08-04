@@ -73,6 +73,18 @@ hr {
         cursor: pointer;
     }
 }
+.header .title {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-left: 40px;
+    & img {
+        width: 50px;
+    }
+    & h1 {
+        font-size: 24px;
+    }
+}
 
 .card {
     background: linear-gradient(90deg, rgba(28, 181, 224, 0.3) 0%, rgba(0, 8, 81, 0.9) 100%);
