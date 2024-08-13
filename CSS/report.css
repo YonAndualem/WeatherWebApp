@@ -1,0 +1,134 @@
+:root {
+    --bg-color1: #313132;
+    --bg-color2: #2a2b2d;
+    --input-bg: #343a40;
+    --input-border: #495057;
+    --input-focus: #007bff;
+    --button-bg: #007bff;
+    --button-hover-bg: #0056b3;
+    --text-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-color1);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.report-form-container {
+    background-color: var(--bg-color2);
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    position: relative;
+    color: var(--text-color);
+}
+
+.report-form-container h1 {
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--button-bg);
+    text-align: center;
+    font-size: 24px;
+}
+
+.report-form-container label {
+    display: block;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.report-form-container input,
+.report-form-container select,
+.report-form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.report-form-container input:focus,
+.report-form-container select:focus,
+.report-form-container textarea:focus {
+    border-color: var(--input-focus);
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+.report-form-container textarea {
+    resize: none;
+    height: 120px;
+}
+
+.report-form-container button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.report-form-container button:hover {
+    background-color: var(--button-hover-bg);
+    transform: translateY(-2px);
+}
+
+.report-form-container .footer-text {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+.report-form-container .icon {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--button-bg);
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+}
+
+@media (max-width: 450px) {
+    .report-form-container {
+        padding: 20px;
+    }
+
+    .report-form-container h1 {
+        font-size: 20px;
+    }
+
+    .report-form-container button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

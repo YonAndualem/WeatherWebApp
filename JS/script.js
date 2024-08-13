@@ -239,21 +239,21 @@ cityInput.addEventListener(
 );
 window.addEventListener("load", getUserCoordinates);
 function updateTime() {
-  const now = new Date();
-  let hours = now.getHours();
-  const minutes = String(now.getMinutes()).padStart(2, "0");
-  const seconds = String(now.getSeconds()).padStart(2, "0");
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2, "0");
+    const seconds = String(now.getSeconds()).padStart(2, "0");
 
-  // Determine AM or PM
-  const ampm = hours >= 12 ? "PM" : "AM";
+    // Determine AM or PM
+    const ampm = hours >= 12 ? "PM" : "AM";
 
-  // Convert 24-hour time to 12-hour time
-  hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
+    // Convert 24-hour time to 12-hour time
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
 
-  const currentTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+    const currentTime = `${hours}:${minutes}:${seconds} ${ampm}`;
 
-  document.getElementById("local-time").textContent = currentTime;
+    document.getElementById("local-time").textContent = currentTime;
 }
 
 // Update the time immediately and then every second
