@@ -161,12 +161,17 @@ body {
 
             & p {
                 color: #E1EBEE;
+                text-transform: uppercase;
             }
         }
 
         & .card-footer p {
             font-size: 14px;
             margin-bottom: 12px;
+            margin-top: 15px;
+            & i {
+                margin-right: 10px;
+            }
         }
 
         & .forecast-item {
