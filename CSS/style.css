@@ -394,9 +394,21 @@ body {
 @media (max-width: 660px) {
     .header {
         flex-direction: column;
-
-        & h2 {
-            margin-bottom: 8px;
+        
+        & img {
+            margin-left: 0;
+            padding-left: 0;
+        }
+        & .title {
+            padding-left: 0;
+            text-align: center;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+        & h1 {
+            font-size: 14px;
+            font-family: var(--font-family-heading);
+            font-weight: 600;
         }
 
         & #city-input #searchBtn #locationBtn {
@@ -440,6 +452,22 @@ body {
 @media (max-width: 450px) {
     .weather-data .weather-right .hourly-forecast {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .weather-data .weather-right .hourly-title{
+        margin: 10px 33%;
+    }
+    .header {
+        padding: 15px 0 0 0;
+        & #city-input{
+            margin-bottom: 5px;
+            width: 70%;
+        }
+        & #locationBtn {
+            margin-bottom: 5px;
+            width: 70%;
+            margin-left: 12.5%;
+        }
+
     }
 }
 
