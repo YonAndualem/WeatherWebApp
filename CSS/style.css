@@ -379,7 +379,8 @@ body {
             & .card.card:nth-of-type(4),
             & .card.card:nth-of-type(5),
             & .card.card:nth-of-type(6),
-            & .card.card:nth-of-type(7) {
+            & .card.card:nth-of-type(7),
+            & .card.card:nth-of-type(8) {
                 grid-column: span 1;
             }
 
@@ -418,7 +419,8 @@ body {
         & .card.card:nth-of-type(4),
         & .card.card:nth-of-type(5),
         & .card.card:nth-of-type(6),
-        & .card.card:nth-of-type(7) {
+        & .card.card:nth-of-type(7),
+        & .card.card:nth-of-type(8) {
             grid-column: span 2;
         }
 
@@ -426,6 +428,7 @@ body {
             grid-template-columns: repeat(3, 1fr);
         }
     }
+    
 }
 
 @media (max-width: 480px) {
