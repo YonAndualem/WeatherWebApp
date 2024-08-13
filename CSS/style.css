@@ -115,6 +115,23 @@ body {
     }
 }
 
+.card {
+    background-color: var(--bg-color2);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+
+    & p {
+        font-size: 14px;
+        color: #999;
+    }
+
+    & h2 {
+        font-size: 32px;
+        font-weight: 500;
+    }
+}
+
 .weather-data {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
