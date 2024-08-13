@@ -372,3 +372,37 @@ body {
         }
     }
 }
+
+@media (max-width: 660px) {
+    .header{
+        flex-direction: column;
+        & h2{
+            margin-bottom: 8px;
+        }
+        & #city-input #searchBtn #locationBtn{ 
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .weather-data .weather-right .highlights .air-indices{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .weather-data .weather-right .highlights{
+        & .card.card:nth-of-type(3),
+        & .card.card:nth-of-type(4),
+        & .card.card:nth-of-type(5),
+        & .card.card:nth-of-type(6),
+        & .card.card:nth-of-type(7){
+            grid-column: span 2;
+        }
+        & .air-indices {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
