@@ -351,3 +351,24 @@ body {
         }
     }
 }
+
+@media (max-width: 768px) {
+    .weather-data {
+        grid-template-columns: 1fr;
+
+        & .weather-right .highlights {
+
+            & .card.card:nth-of-type(3),
+            & .card.card:nth-of-type(4),
+            & .card.card:nth-of-type(5),
+            & .card.card:nth-of-type(6),
+            & .card.card:nth-of-type(7) {
+                grid-column: span 1;
+            }
+
+            & .air-indices {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    }
+}
