@@ -65,7 +65,7 @@ h1 {
 
 .tagline {
     font-size: 1.8em;
-    color: #ffdd57;
+    color: #71adec;
     margin-bottom: 20px;
     animation: fadeIn 2s ease-in-out;
 }
@@ -255,7 +255,8 @@ footer {
     section p {
         font-size: 1em;
     }
-    header p{
+
+    header p {
         display: none;
     }
 
