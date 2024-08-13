@@ -260,6 +260,7 @@ body {
             & .sunrise-sunset {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                place-items: center;
 
                 & .item {
                     display: flex;
