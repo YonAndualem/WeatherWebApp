@@ -34,7 +34,6 @@ function getWeatherDetails(name, lat, lon, country, state) {
                 <p class="air-index aqi-${data.list[0].main.aqi}">${aqiList[data.list[0].main.aqi - 1]}</p>
             </div>
             <div class="air-indices">
-                <i class="fa-regular fa-wind fa-3x"></i>
                 <div class="item">
                     <p>PM2.5</p>
                     <h2>${pm2_5}</h2>
@@ -135,6 +134,7 @@ function getWeatherDetails(name, lat, lon, country, state) {
         visibilityval.innerText = `${visibility / 1000} km`;
         windSpeedval.innerText = `${speed} m/s`;
         feelsval.innerText = `${(feels_like - 273.15).toFixed(2)}\u00B0C`;
+        seaval.innerText = `${data.main.sea_level}  MASL`;
     }).catch(() => {
         alert(`Failed to fetch weather details for ${name}`);
     });
@@ -181,8 +181,46 @@ function getWeatherDetails(name, lat, lon, country, state) {
     });
 }
 
-//City Coordinates
-//User Coordinates
+function getCityCoordinates() {
+    let cityName = cityInput.value.trim();
+    cityInput.value = "";
+    if (!cityName) return;
+    let GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${api_key}`;
+
+    fetch(GEOCODING_API_URL)
+        .then((res) => res.json())
+        .then((data) => {
+            let { name, lat, lon, country, state } = data[0];
+            getWeatherDetails(name, lat, lon, country, state);
+        })
+        .catch(() => {
+            alert(`City not found ${cityName}`);
+        });
+}
+
+function getUserCoordinates() {
+    navigator.geolocation.getCurrentPosition(
+        (position) => {
+            let { latitude, longitude } = position.coords;
+            let REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${api_key}`;
+
+            fetch(REVERSE_GEOCODING_URL)
+                .then((res) => res.json())
+                .then((data) => {
+                    let { name, country, state } = data[0];
+                    getWeatherDetails(name, latitude, longitude, country, state);
+                })
+                .catch(() => {
+                    alert(`Failed to fetch location details`);
+                });
+        },
+        (error) => {
+            if (error.code == error.PERMISSION_DENIED) {
+                alert(`Location access denied`);
+            }
+        }
+    );
+}
 
 searchBtn.addEventListener("click", getCityCoordinates);
 locationBtn.addEventListener("click", getUserCoordinates);
