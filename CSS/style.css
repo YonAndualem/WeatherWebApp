@@ -169,6 +169,7 @@ body {
             font-size: 14px;
             margin-bottom: 12px;
             margin-top: 15px;
+
             & i {
                 margin-right: 10px;
             }
@@ -260,7 +261,17 @@ body {
             & .sunrise-sunset {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: auto auto;
                 place-items: center;
+                gap: 10px;
+
+                & #current-time {
+                    font-size: 14px;
+                    margin-top: 10px;
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                    align-self: end;
+                }
 
                 & .item {
                     display: flex;
@@ -380,12 +391,14 @@ body {
 }
 
 @media (max-width: 660px) {
-    .header{
+    .header {
         flex-direction: column;
-        & h2{
+
+        & h2 {
             margin-bottom: 8px;
         }
-        & #city-input #searchBtn #locationBtn{ 
+
+        & #city-input #searchBtn #locationBtn {
             margin-bottom: 10px;
             width: 100%;
         }
@@ -393,40 +406,42 @@ body {
 }
 
 @media (max-width: 580px) {
-    .weather-data .weather-right .highlights .air-indices{
+    .weather-data .weather-right .highlights .air-indices {
         grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 520px) {
-    .weather-data .weather-right .highlights{
+    .weather-data .weather-right .highlights {
+
         & .card.card:nth-of-type(3),
         & .card.card:nth-of-type(4),
         & .card.card:nth-of-type(5),
         & .card.card:nth-of-type(6),
-        & .card.card:nth-of-type(7){
+        & .card.card:nth-of-type(7) {
             grid-column: span 2;
         }
+
         & .air-indices {
             grid-template-columns: repeat(3, 1fr);
         }
     }
 }
 
-@media (max-width: 480px){
-    .weather-data .weather-right .highlights .sunrise-sunset{
+@media (max-width: 480px) {
+    .weather-data .weather-right .highlights .sunrise-sunset {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 450px){
-    .weather-data .weather-right .hourly-forecast{
+@media (max-width: 450px) {
+    .weather-data .weather-right .hourly-forecast {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (max-width: 380px){
-    .weather-data .weather-right .highlights .air-indices{
+@media (max-width: 380px) {
+    .weather-data .weather-right .highlights .air-indices {
         grid-template-columns: repeat(2, 1fr);
     }
 }
