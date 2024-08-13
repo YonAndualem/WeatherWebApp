@@ -16,6 +16,7 @@
     --gradient-bg: linear-gradient(90deg, #1CB5E0 0%, #000851 100%);
     --box-shadow: 0 10px 20px rgba(0, 8, 81, 0.25);
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -92,11 +93,12 @@ body {
             box-shadow: 0 5px 15px rgba(234, 110, 75, 0.5);
         }
     }
+
     & .title {
         font-family: var(--font-family-heading);
         gap: 20px;
         padding-left: 40px;
-        
+
         & .running {
             display: flex;
             align-items: center;
@@ -271,6 +273,22 @@ body {
             }
         }
 
-        /* Hourly forecast */
+        & .hourly-forecast {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            column-gap: 10px;
+
+            & .card {
+                text-align: center;
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+                &:hover {
+                    transform: translateY(-5px) scale(1.05);
+                    background: rgba(28, 181, 224, 0.5);
+                    box-shadow: 0 5px 15px rgba(28, 181, 224, 0.5);
+                }
+            }
+        }
+
     }
 }
