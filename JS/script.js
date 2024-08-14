@@ -69,7 +69,8 @@ function getWeatherDetails(name, lat, lon, country, state) {
             </div>
             `;
     }).catch(() => {
-        alert(`Failed to fetch air pollution details for ${name}`);
+        showModal("Oops! Failed to fetch air pollution details.");
+        return;
     });
 
 
@@ -145,7 +146,8 @@ function getWeatherDetails(name, lat, lon, country, state) {
         feelsval.innerText = `${(feels_like - 273.15).toFixed(1)}\u00B0C`;
         seaval.innerText = `${data.main.sea_level}  MASL`;
     }).catch(() => {
-        alert(`Failed to fetch weather details for ${name}`);
+        showModal("Oops! Failed to fetch weather details for this city.");
+        return;
     });
 
     fetch(FORECAST_API_URL).then(res => res.json()).then(data => {
@@ -203,7 +205,8 @@ function getCityCoordinates() {
             getWeatherDetails(name, lat, lon, country, state);
         })
         .catch(() => {
-            alert(`City not found ${cityName}`);
+            showModal("Oops! City not found.");
+            return;
         });
 }
 
@@ -220,15 +223,43 @@ function getUserCoordinates() {
                     getWeatherDetails(name, latitude, longitude, country, state);
                 })
                 .catch(() => {
-                    alert(`Failed to fetch location details`);
+                    showModal("Oops! Failed to fetch Location Details.");
+                    return;
                 });
         },
         (error) => {
             if (error.code == error.PERMISSION_DENIED) {
-                alert(`Location access denied`);
+                showModal("Location access denined! Please allow access to continue.");
+                return;
             }
         }
     );
+}
+
+function showModal(message, callback) {
+    const modal = document.getElementById("modal");
+    const modalMessage = document.getElementById("modal-message");
+    const closeBtn = document.getElementsByClassName("close")[0];
+
+    modalMessage.textContent = message;
+    modal.style.display = "block";
+
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+        if (callback) callback();
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            if (callback) callback();
+        }
+    };
+
+    /*setTimeout(function () {
+      modal.style.display = "none";
+      if (callback) callback();
+    }, 3000);*/
 }
 
 searchBtn.addEventListener("click", getCityCoordinates);
