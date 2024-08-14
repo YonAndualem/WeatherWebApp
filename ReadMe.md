@@ -3,6 +3,7 @@
 **Weatherlytics** is a web application that provides real-time weather updates, a 5-day forecast, and detailed weather highlights including air quality, humidity, wind speed, and more.
 
 ![Cloud Icon](./Image/clouds.png)
+[Weatherlytics](https://weathermapv2.netlify.app/)
 
 ## Features
 
