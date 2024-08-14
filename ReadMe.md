@@ -1,10 +1,10 @@
 # WEATHERLYTICS
 
 **Weatherlytics** is a web application that provides real-time weather updates, a 5-day forecast, and detailed weather highlights including air quality, humidity, wind speed, and more.
+[Weatherlytics!](https://weathermapv2.netlify.app/)
 
-![Cloud Icon](./Image/clouds.png)
-[Weatherlytics](https://weathermapv2.netlify.app/)
 
+![Weatherlytics](./Image/qrCode.png)
 ## Features
 
 - **Real-time Weather Data:** Get current temperature, weather conditions, and location-specific data.
@@ -57,3 +57,10 @@ Contributions are welcome! Please fork the repository and create a pull request 
 
 - Icons provided by [FontAwesome](https://fontawesome.com/) and [BoxIcons](https://boxicons.com/).
 - Weather data powered by [OpenWeatherMap](https://openweathermap.org/).
+
+## Group Members - DRBSE2202-B
+- Mintesnot Abebe
+- Muhammed Siraj
+- Naol Girma
+- Yeabselam Kassaye
+- Yonas Berhanu
