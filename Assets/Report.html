@@ -20,8 +20,8 @@
         <h1>Report an Issue</h1>
         <form id="reportForm">
             <label for="name">Name</label>
-            <input minlength="4" type="text" id="name" name="name" pattern="[A-Za-z\s'-]+" title="Please enter a valid name."
-                required>
+            <input minlength="4" type="text" id="name" name="name" pattern="[A-Za-z\s'-]+"
+                title="Please enter a valid name." required>
 
             <label for="email">Email</label>
             <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -45,6 +45,12 @@
         <p class="footer-text">Thank you for helping us improve our weather service.</p>
 
         <a href="./weather.html" class="back">Back to Home</a>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message"></p>
+        </div>
     </div>
     <script src="/JS/report.js"></script>
 
