@@ -23,19 +23,27 @@ document
             return;
         }
 
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("issue-type", issueType);
+        formData.append("description", description);
 
-        const formData = {
-            name: name,
-            email: email,
-            issueType: issueType,
-            description: description,
-        };
 
-        localStorage.setItem("formData", JSON.stringify(formData));
-
-        showModal("Thank You for your feedback!", function () {
-            window.location.href = "../Assets/weather.html";
-        });
+        fetch("../Assets/Backend/submitreport.php", {
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.text())
+            .then((data) => {
+                showModal(data, function () {
+                    window.location.href = "../Assets/weather.html"; 
+                });
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                showModal("An error occurred while submitting your report.");
+            });
     });
 
 function showModal(message, callback) {
@@ -51,7 +59,6 @@ function showModal(message, callback) {
         if (callback) callback();
     };
 
-    
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -59,9 +66,8 @@ function showModal(message, callback) {
         }
     };
 
-
     setTimeout(function () {
         modal.style.display = "none";
         if (callback) callback();
-    }, 3000); 
+    }, 3000);
 }

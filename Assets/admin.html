@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../CSS/report.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <!-- Login Section -->
+        <div id="loginSection">
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <label for="adminEmail">Email</label>
+                <input type="email" id="adminEmail" required>
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <!-- Reports Section -->
+        <div id="reportsSection" style="display:none;">
+            <h2>Submitted Reports</h2>
+            <input type="text" id="searchInput" placeholder="Search reports...">
+            <button id="exportButton" onclick="exportReports()">Export Reports</button>
+            <table id="reportsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Issue Type</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+
+        <!-- Modal for Replies -->
+        <div id="replyModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Reply to Report</h2>
+                <textarea id="replyMessage" placeholder="Type your reply..."></textarea>
+                <button id="sendReply">Send Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../JS/admin.js"></script>
+</body>
+
+</html>
