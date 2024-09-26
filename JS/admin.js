@@ -17,7 +17,7 @@ document
                 if (data.success) {
                     document.getElementById("loginSection").style.display = "none";
                     document.getElementById("reportsSection").style.display = "block";
-                    fetchReports(); // Call to fetch reports after login
+                    fetchReports();
                 } else {
                     alert("Invalid email or password.");
                 }
@@ -31,7 +31,7 @@ function fetchReports() {
             const tbody = document
                 .getElementById("reportsTable")
                 .querySelector("tbody");
-            tbody.innerHTML = ""; // Clear existing rows
+            tbody.innerHTML = "";
             data.forEach((report) => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
@@ -54,9 +54,15 @@ function openReplyModal(email) {
     const modal = document.getElementById("replyModal");
     modal.style.display = "block";
 
-    // Store the email to use when sending a reply
+
     document.getElementById("sendReply").onclick = function () {
         const message = document.getElementById("replyMessage").value;
+
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        };
 
         fetch("backend/sendReply.php", {
             method: "POST",
@@ -69,7 +75,7 @@ function openReplyModal(email) {
             .then((result) => {
                 alert(result);
                 modal.style.display = "none";
-                document.getElementById("replyMessage").value = ""; // Clear the textarea
+                document.getElementById("replyMessage").value = "";
             });
     };
 }

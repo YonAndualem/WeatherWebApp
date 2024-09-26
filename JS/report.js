@@ -37,7 +37,7 @@ document
             .then((response) => response.text())
             .then((data) => {
                 showModal(data, function () {
-                    window.location.href = "../Assets/weather.html"; 
+                    window.location.href = "../Assets/weather.html";
                 });
             })
             .catch((error) => {

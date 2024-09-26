@@ -1,15 +1,15 @@
 <?php
 $servername = "localhost";
-$username = "root"; 
-$password = ""; 
-$dbname = "weather_issues"; 
+$username = "root";
+$password = "";
+$dbname = "weather_issues";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM reports"; // Adjust this query based on your reports table
+$sql = "SELECT * FROM reports";
 $result = $conn->query($sql);
 
 $reports = [];
@@ -19,4 +19,3 @@ while ($row = $result->fetch_assoc()) {
 
 echo json_encode($reports);
 $conn->close();
-?>

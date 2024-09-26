@@ -6,8 +6,8 @@ require 'PHPMailer/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Function to get email template
-function getEmailTemplate($subject, $body) {
+function getEmailTemplate($subject, $body)
+{
     return "
     <html>
     <head>
@@ -30,29 +30,29 @@ function getEmailTemplate($subject, $body) {
 
 $data = json_decode(file_get_contents("php://input"));
 $email = $data->email;
-$messageBody = $data->message; // Get the custom message
+$messageBody = $data->message;
 
-// Customize your email subject
+
 $subject = 'Response to Your Report';
 
-// Get the email template with the custom message
+
 $message = getEmailTemplate($subject, $messageBody);
 
 $mail = new PHPMailer(true);
 
 try {
-    // Server settings
+
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com'; // Gmail SMTP server
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'lyticsweather@gmail.com'; // Your Gmail address
-    $mail->Password = 'ijizjwfqvvmefnfa'; // Your App Password
-    $mail->SMTPSecure = 'tls'; // Enable TLS encryption
-    $mail->Port = 587; // TCP port to connect to
+    $mail->Username = 'lyticsweather@gmail.com';
+    $mail->Password = 'ijizjwfqvvmefnfa';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
 
     // Recipients
     $mail->setFrom('lyticsweather@gmail.com', 'Weather Issues Admin');
-    $mail->addAddress($email); // Add recipient
+    $mail->addAddress($email);
 
     // Content
     $mail->isHTML(true);
@@ -60,9 +60,8 @@ try {
     $mail->Body = $message;
 
     $mail->send();
-    
+
     echo json_encode(["message" => "Reply sent successfully."]);
 } catch (Exception $e) {
     echo json_encode(["error" => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"]);
 }
-?>

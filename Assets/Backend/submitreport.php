@@ -5,9 +5,9 @@ ini_set('display_errors', 1);
 
 // Database connection settings
 $servername = "localhost";
-$username = "root"; // Default XAMPP MySQL username
-$password = ""; // Default XAMPP MySQL password (empty)
-$dbname = "weather_issues"; // Your database name
+$username = "root";
+$password = "";
+$dbname = "weather_issues";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -37,4 +37,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 // Close connection
 $conn->close();
-?>

@@ -5,30 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../CSS/report.css">
+    <link rel="stylesheet" href="../CSS/admin.css">
 </head>
 
 <body>
-    <div class="admin-container">
-        <h1>Admin Dashboard</h1>
-
-        <!-- Login Section -->
-        <div id="loginSection">
-            <h2>Admin Login</h2>
+    <div class="admin-container ">
+        <div id="loginSection"  class="card">
+            <img src="../Image/clouds.png" alt="">
+            <h1>Admin Dashboard</h1>
+            <h2>Login</h2>
             <form id="loginForm">
-                <label for="adminEmail">Email</label>
+                <label for="adminEmail">Email</label><br>
                 <input type="email" id="adminEmail" required>
+                <br>
                 <label for="adminPassword">Password</label>
+                <br>
                 <input type="password" id="adminPassword" required>
-                <button type="submit">Login</button>
+                <br>
+                <button class="loginBtn" type="submit">Login</button>
             </form>
         </div>
-
-        <!-- Reports Section -->
-        <div id="reportsSection" style="display:none;">
+        <div class="report" id="reportsSection" style="display:none;">
+            <img src="../Image/clouds.png" alt="">
             <h2>Submitted Reports</h2>
-            <input type="text" id="searchInput" placeholder="Search reports...">
-            <button id="exportButton" onclick="exportReports()">Export Reports</button>
             <table id="reportsTable">
                 <thead>
                     <tr>
@@ -45,12 +44,12 @@
 
         </div>
 
-        <!-- Modal for Replies -->
         <div id="replyModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Reply to Report</h2>
                 <textarea id="replyMessage" placeholder="Type your reply..."></textarea>
+                <br>
                 <button id="sendReply">Send Reply</button>
             </div>
         </div>

@@ -1,9 +1,9 @@
 <?php
 session_start();
 $servername = "localhost";
-$username = "root"; // Default XAMPP username
-$password = ""; // Default XAMPP password
-$dbname = "weather_issues"; // Your database name
+$username = "root";
+$password = "";
+$dbname = "weather_issues";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -26,4 +26,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 $conn->close();
-?>
