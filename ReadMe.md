@@ -12,6 +12,7 @@
 - **Air Quality Index:** Monitor air quality with detailed breakdowns of PM2.5, PM10, SO2, CO, NO, NO2, NH3, and O3 levels.
 - **Sunrise & Sunset:** View the daily sunrise and sunset times.
 - **Additional Metrics:** Humidity, pressure, visibility, wind speed, feels-like temperature, and sea level.
+- **Error reporting and handling using Admin side**
 
 ## Screenshots
 
@@ -25,7 +26,7 @@
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/weatherlytics.git
+    git clone https://github.com/YonAndualem/weatherlytics.git
     ```
 
 2. Navigate to the project directory:
@@ -39,12 +40,15 @@
 
 - **Search for a City:** Enter the name of a city in the search bar to view its weather data.
 - **Current Location:** Click on "Your Current Location" to get weather updates for your current geographical location.
+- **Report bugs and errors and will respond using email**
 
 ## Technologies Used
 
 - **HTML5**
 - **CSS3**
 - **JavaScript**
+- **PHP**
+- **SMTP**
 - **Moment.js**
 - **OpenWeatherMap API**
 
