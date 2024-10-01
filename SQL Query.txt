@@ -1,0 +1,19 @@
+CREATE DATABASE weather_issues
+USE weather_issues
+
+CREATE TABLE reports (
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    issue_type VARCHAR(50) NOT NULL,
+    description TEXT NOT NULL,
+    report_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+INSERT INTO admins (email, password) VALUES ('admin@example.com', 'yourpassword');
