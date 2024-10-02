@@ -40,6 +40,7 @@ function fetchReports() {
                     <td>${report.email}</td>
                     <td>${report.issue_type}</td>
                     <td>${report.description}</td>
+                    <td>${report.report_time}</td>
                     <td>
                         <button onclick="openReplyModal('${report.email
                     }')">Reply</button>
