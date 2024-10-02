@@ -46,7 +46,7 @@ try {
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'lyticsweather@gmail.com';
-    $mail->Password = 'ijizjwfqvvmefnfa';
+    $mail->Password = 'lvyq bsst fjer dony';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
