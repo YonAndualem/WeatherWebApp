@@ -256,10 +256,10 @@ function showModal(message, callback) {
         }
     };
 
-    /*setTimeout(function () {
+    setTimeout(function () {
       modal.style.display = "none";
       if (callback) callback();
-    }, 3000);*/
+    }, 3000);
 }
 
 searchBtn.addEventListener("click", getCityCoordinates);
