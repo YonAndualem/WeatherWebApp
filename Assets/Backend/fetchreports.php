@@ -17,7 +17,7 @@ $result = $conn->query($sql);
 $reports = [];
 while ($row = $result->fetch_assoc()) {
     // Format the report_time in two lines: time on one line and date on the next
-    $formatted_time = date('h:i:s A', strtotime($row['report_time']));
+    $formatted_time = date('h:i A', strtotime($row['report_time']));
     $formatted_date = date('d-m-Y', strtotime($row['report_time']));
     
     // Combine time and date with an HTML <br> tag for new line in HTML
